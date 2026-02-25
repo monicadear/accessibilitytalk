@@ -1,0 +1,36 @@
+<html>
+<body>
+<h1>Better Focus Trap</h1>
+
+<button id="openModal">Open Modal</button>
+
+<div id="modal" role="dialog" aria-modal="true" hidden>
+  <h2 id="dialogTitle">Newsletter Signup</h2>
+  <input type="text" placeholder="Your email">
+  <button id="closeModal">Close</button>
+</div>
+
+<script>
+const openBtn = document.getElementById('openModal');
+const modal = document.getElementById('modal');
+const closeBtn = document.getElementById('closeModal');
+
+openBtn.addEventListener('click', () => {
+  modal.hidden = false;
+  closeBtn.focus();
+});
+
+closeBtn.addEventListener('click', () => {
+  modal.hidden = true;
+  openBtn.focus();
+});
+
+modal.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    modal.hidden = true;
+    openBtn.focus();
+  }
+});
+</script>
+</body>
+</html>
